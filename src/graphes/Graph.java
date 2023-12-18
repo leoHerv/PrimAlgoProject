@@ -5,15 +5,15 @@ import java.util.Iterator;
 public abstract class Graph
 {
     // Number of the vertices in the graph.
-    protected int p_vertices;
+    protected final int pro_vertices;
 
     public Graph(int vertices)
     {
-        p_vertices = vertices;
+        pro_vertices = vertices;
     }
 
     // Add an edge to the graph.
-    public abstract void addEdge();
+    public abstract void addEdge(int source, int destination, int weight);
 
     // Give the weight between two vertex.
     public abstract int getWeight(int source, int destination);
@@ -24,7 +24,7 @@ public abstract class Graph
     // Give the number of vertices.
     public int getVertices()
     {
-        return p_vertices;
+        return pro_vertices;
     }
 
 }
