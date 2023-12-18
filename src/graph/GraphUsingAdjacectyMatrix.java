@@ -10,12 +10,17 @@ public class GraphUsingAdjacectyMatrix extends Graph
     {
         super(vertices);
         pro_adjacencyMatrix = new int[pro_vertices * pro_vertices];
+        for(int i = 0; i < pro_vertices * pro_vertices; i++)
+        {
+            pro_adjacencyMatrix[i] = INF;
+        }
     }
 
     @Override
     public void addEdge(int source, int destination, int weight)
     {
         pro_adjacencyMatrix[source * pro_vertices + destination] = weight;
+        pro_adjacencyMatrix[destination * pro_vertices + source] = weight;
     }
 
     @Override
