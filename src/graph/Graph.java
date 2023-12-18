@@ -1,4 +1,4 @@
-package graphes;
+package graph;
 
 import java.util.Iterator;
 

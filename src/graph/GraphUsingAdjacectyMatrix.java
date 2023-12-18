@@ -1,4 +1,4 @@
-package graphes;
+package graph;
 
 import java.util.Iterator;
 
@@ -51,7 +51,11 @@ public class GraphUsingAdjacectyMatrix extends Graph
         @Override
         public Integer next()
         {
-            return pro_adjacencyMatrix[pri_vertex * pro_vertices + pri_currentNeighbor++];
+            if(hasNext())
+            {
+                return pro_adjacencyMatrix[pri_vertex * pro_vertices + pri_currentNeighbor++];
+            }
+            return null;
         }
     }
 }
