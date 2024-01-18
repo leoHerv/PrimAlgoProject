@@ -2,11 +2,11 @@ package graph;
 
 import java.util.Iterator;
 
-public class GraphUsingAdjacectyMatrix extends Graph
+public class GraphUsingAdjacencyMatrix extends Graph
 {
     protected int[] pro_adjacencyMatrix;
 
-    public GraphUsingAdjacectyMatrix(int vertices)
+    public GraphUsingAdjacencyMatrix(int vertices)
     {
         super(vertices);
         pro_adjacencyMatrix = new int[pro_vertices * pro_vertices];
@@ -58,9 +58,14 @@ public class GraphUsingAdjacectyMatrix extends Graph
         {
             if(hasNext())
             {
-                return pro_adjacencyMatrix[pri_vertex * pro_vertices + pri_currentNeighbor++];
+                while (pri_currentNeighbor < pro_vertices && pro_adjacencyMatrix[pri_vertex * pro_vertices + pri_currentNeighbor] == INF) {
+                    pri_currentNeighbor++;
+                }
+                return pri_currentNeighbor++;
             }
             return null;
         }
+
+
     }
 }
