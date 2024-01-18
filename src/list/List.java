@@ -2,7 +2,11 @@ package list;
 
 import java.util.Iterator;
 
-/** Simply chained Generic list */
+/**
+ * Simply chained Generic list  @param <T>  the type parameter
+ *
+ * @param <T> the type parameter
+ */
 public class List<T> implements Iterable<T>
 {
     /** Head of the list */
@@ -11,20 +15,31 @@ public class List<T> implements Iterable<T>
     /** Size of the list*/
     private int pri_size;
 
+    /**
+     * Instantiates a new List.
+     */
     public List()
     {
         pri_head = null;
         pri_size = 0;
     }
 
-    /** Add an element to the list. */
+    /**
+     * Add an element to the list.  @param data the data
+     *
+     * @param data the data
+     */
     public void add(T data)
     {
         pri_head = new Node<>(data, pri_head);
         pri_size++;
     }
 
-    /** Give the size of the list. */
+    /**
+     * Give the size of the list.  @return the int
+     *
+     * @return the int
+     */
     public int size()
     {
         return pri_size;
@@ -47,19 +62,33 @@ public class List<T> implements Iterable<T>
         private T pri_data;
         private Node<T> pri_next;
 
+        /**
+         * Instantiates a new Node.
+         *
+         * @param data the data
+         * @param next the next
+         */
         public Node(T data, Node<T> next)
         {
             pri_data = data;
             pri_next = next;
         }
 
-        /** Give the data of this node. */
+        /**
+         * Give the data of this node.  @return the data
+         *
+         * @return the data
+         */
         public T getData()
         {
             return pri_data;
         }
 
-        /** Give the next node. */
+        /**
+         * Give the next node.  @return the next
+         *
+         * @return the next
+         */
         public Node<T> getNext()
         {
             return pri_next;
@@ -72,6 +101,9 @@ public class List<T> implements Iterable<T>
         /** Current node that we iterate through */
         private Node<T> pri_current;
 
+        /**
+         * Instantiates a new List iterator.
+         */
         ListIterator()
         {
             pri_current = pri_head;
