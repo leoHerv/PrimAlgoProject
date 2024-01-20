@@ -1,5 +1,6 @@
 import PrimeAlgo.PrimAlgo;
 import graph.Graph;
+import graph.GraphUsingAdjacencyList;
 import graph.GraphUsingAdjacencyMatrix;
 
 public class Main
@@ -9,24 +10,48 @@ public class Main
             System.out.println("Usage: java PrimM <graph_file> <start_vertex> [<output_file>]");
             System.exit(1);
         }*/
-        Graph graph = new GraphUsingAdjacencyMatrix(5);
-        graph.addEdge(0, 1, 2);
-        graph.addEdge(0, 2, 3);
-        graph.addEdge(0, 3, 6);
-        graph.addEdge(1, 3, 8);
-        graph.addEdge(1, 4, 5);
-        graph.addEdge(2, 4, 7);
-        graph.addEdge(3, 4, 9);
+        System.out.println("GraphUsingAdjacencyList");
+
+        Graph graph = new GraphUsingAdjacencyList(6);
+        graph.addEdge(2, 1, 61);
+        graph.addEdge(3, 1, 50);
+        graph.addEdge(3, 2, 1);
+        graph.addEdge(4, 3, 68);
+        graph.addEdge(5, 4, 84);
+        graph.addEdge(6, 1, 28);
+        graph.addEdge(6, 5, 34);
 
 
 
         long startTime = System.nanoTime();
         PrimAlgo algo = new PrimAlgo(graph);
-        algo.primMST(0);
+        algo.primMST(1);
         long endTime = System.nanoTime();
 
         double duration = (endTime - startTime) / 1e6; // Convert to milliseconds
         System.out.println("Temps CPU : " + duration + " ms");
+
+
+        System.out.println("GraphUsingAdjacencyMatrix");
+
+        Graph graph2 = new GraphUsingAdjacencyMatrix(6);
+        graph2.addEdge(2, 1, 61);
+        graph2.addEdge(3, 1, 50);
+        graph2.addEdge(3, 2, 1);
+        graph2.addEdge(4, 3, 68);
+        graph2.addEdge(5, 4, 84);
+        graph2.addEdge(6, 1, 28);
+        graph2.addEdge(6, 5, 34);
+
+
+
+        long startTime2 = System.nanoTime();
+        PrimAlgo algo2 = new PrimAlgo(graph2);
+        algo2.primMST(1);
+        long endTime2 = System.nanoTime();
+
+        double duration2 = (endTime2 - startTime2) / 1e6; // Convert to milliseconds
+        System.out.println("Temps CPU : " + duration2 + " ms");
 
         /*
 

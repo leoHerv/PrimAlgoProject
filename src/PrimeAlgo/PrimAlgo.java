@@ -22,7 +22,7 @@ public class PrimAlgo {
         Arrays.fill(key, INF);
         Arrays.fill(parent, INF);
 
-        key[startVertex] = 0;
+        key[startVertex - 1] = 1;
         parent[startVertex] = -1;
 
         for (int count = 0; count < vertices - 1; count++) {
@@ -34,17 +34,17 @@ public class PrimAlgo {
 
             mstSet[u] = true;
 
-            Iterator<Integer> iterator = graphToUse.getNeighbors(u);
+            Iterator<Integer> iterator = graphToUse.getNeighbors(u + 1);
             while (iterator.hasNext()) {
                 int v = iterator.next();
-                if (v >= vertices || u >= vertices) {
+                if (v > vertices || u >= vertices) {
                     continue;
                 }
-                int weight = graphToUse.getWeight(u, v);
+                int weight = graphToUse.getWeight(u + 1, v);
 
-                if (!mstSet[v] && weight < key[v]) {
-                    parent[v] = u;
-                    key[v] = weight;
+                if (!mstSet[v - 1] && weight < key[v - 1]) {
+                    parent[v - 1] = u;
+                    key[v - 1] = weight;
                 }
             }
         }
@@ -64,7 +64,6 @@ public class PrimAlgo {
                 minIndex = v;
             }
         }
-
         return minIndex;
     }
 

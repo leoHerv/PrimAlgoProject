@@ -19,14 +19,14 @@ public class GraphUsingAdjacencyMatrix extends Graph
     @Override
     public void addEdge(int source, int destination, int weight)
     {
-        pro_adjacencyMatrix[source * pro_vertices + destination] = weight;
-        pro_adjacencyMatrix[destination * pro_vertices + source] = weight;
+        pro_adjacencyMatrix[(source - 1) * pro_vertices + (destination - 1)] = weight;
+        pro_adjacencyMatrix[(destination - 1) * pro_vertices + (source - 1)] = weight;
     }
 
     @Override
     public int getWeight(int source, int destination)
     {
-        return pro_adjacencyMatrix[source * pro_vertices + destination];
+        return pro_adjacencyMatrix[(source - 1) * pro_vertices + (destination - 1)];
     }
 
     @Override
@@ -34,6 +34,10 @@ public class GraphUsingAdjacencyMatrix extends Graph
     {
         return new MatrixIterator(vertex);
     }
+
+    //========================//
+    //===   Intern Class   ===//
+    //========================//
 
     // Iterator to iterate through all neighbors the vertices of a vertex.
     private class MatrixIterator implements Iterator<Integer>
@@ -44,7 +48,10 @@ public class GraphUsingAdjacencyMatrix extends Graph
         public MatrixIterator(int vertex)
         {
             this.pri_vertex = vertex;
-            this.pri_currentNeighbor = 0;
+            this.pri_currentNeighbor = 1;
+            while (pri_currentNeighbor < pro_vertices && pro_adjacencyMatrix[(pri_vertex - 1) * pro_vertices + (pri_currentNeighbor - 1)] == INF) {
+                pri_currentNeighbor++;
+            }
         }
 
         @Override
@@ -58,14 +65,12 @@ public class GraphUsingAdjacencyMatrix extends Graph
         {
             if(hasNext())
             {
-                while (pri_currentNeighbor < pro_vertices && pro_adjacencyMatrix[pri_vertex * pro_vertices + pri_currentNeighbor] == INF) {
+                while (pri_currentNeighbor < pro_vertices && pro_adjacencyMatrix[(pri_vertex - 1) * pro_vertices + (pri_currentNeighbor - 1)] == INF) {
                     pri_currentNeighbor++;
                 }
                 return pri_currentNeighbor++;
             }
             return null;
         }
-
-
     }
 }

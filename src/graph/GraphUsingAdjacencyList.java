@@ -17,7 +17,7 @@ public class GraphUsingAdjacencyList extends Graph
         // Init all edge list of all the vertices.
         for(int i = 0; i < pro_vertices; i++)
         {
-            pro_adjacencyList[i] = new List<>();
+            pro_adjacencyList[i] = new List<Edge>();
         }
     }
 
@@ -44,7 +44,7 @@ public class GraphUsingAdjacencyList extends Graph
     @Override
     public Iterator<Integer> getNeighbors(int vertex)
     {
-        return null;//pro_adjacencyList[vertex - 1].iterator();
+        return new AdListIterator(vertex);
     }
 
     //========================//
@@ -77,5 +77,36 @@ public class GraphUsingAdjacencyList extends Graph
         {
             return pri_weight;
         }
+    }
+
+    // Iterator to iterate through all neighbors the vertices of a vertex.
+    private class AdListIterator implements Iterator<Integer>
+    {
+        //private final int pri_vertex;
+        private final Iterator<Edge> pri_edgeIterator;
+
+        public AdListIterator(int vertex)
+        {
+            this.pri_edgeIterator = pro_adjacencyList[vertex - 1].iterator();
+        }
+
+        @Override
+        public boolean hasNext()
+        {
+            return pri_edgeIterator.hasNext();
+        }
+
+        @Override
+        public Integer next()
+        {
+            if(hasNext())
+            {
+                Edge edge = pri_edgeIterator.next();
+                return edge.getDestination();
+            }
+            return null;
+        }
+
+
     }
 }
