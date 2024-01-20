@@ -4,7 +4,6 @@ import java.util.Iterator;
 
 /**
  * Simply chained Generic list  @param <T>  the type parameter
- *
  * @param <T> the type parameter
  */
 public class List<T> implements Iterable<T>
@@ -25,8 +24,7 @@ public class List<T> implements Iterable<T>
     }
 
     /**
-     * Add an element to the list.  @param data the data
-     *
+     * Add an element to the list.
      * @param data the data
      */
     public void add(T data)
@@ -36,16 +34,17 @@ public class List<T> implements Iterable<T>
     }
 
     /**
-     * Give the size of the list.  @return the int
-     *
-     * @return the int
+     * Give the size of the list.
+     * @return The size.
      */
     public int size()
     {
         return pri_size;
     }
 
-    /** Give an iterator on the list. */
+    /** Give an iterator on the list.
+     * @return An iterator on the list.
+     */
     @Override
     public Iterator<T> iterator()
     {
@@ -64,9 +63,8 @@ public class List<T> implements Iterable<T>
 
         /**
          * Instantiates a new Node.
-         *
-         * @param data the data
-         * @param next the next
+         * @param data The data
+         * @param next The next
          */
         public Node(T data, Node<T> next)
         {
@@ -75,9 +73,8 @@ public class List<T> implements Iterable<T>
         }
 
         /**
-         * Give the data of this node.  @return the data
-         *
-         * @return the data
+         * Give the data of this node.
+         * @return The data
          */
         public T getData()
         {
@@ -85,9 +82,8 @@ public class List<T> implements Iterable<T>
         }
 
         /**
-         * Give the next node.  @return the next
-         *
-         * @return the next
+         * Give the next node.
+         * @return The next one.
          */
         public Node<T> getNext()
         {

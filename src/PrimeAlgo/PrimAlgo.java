@@ -36,15 +36,15 @@ public class PrimAlgo {
 
             Iterator<Integer> iterator = graphToUse.getNeighbors(u + 1);
             while (iterator.hasNext()) {
-                int v = iterator.next();
+                int v = iterator.next() - 1;
                 if (v > vertices || u >= vertices) {
                     continue;
                 }
-                int weight = graphToUse.getWeight(u + 1, v);
+                int weight = graphToUse.getWeight(u + 1, v + 1);
 
-                if (!mstSet[v - 1] && weight < key[v - 1]) {
-                    parent[v - 1] = u;
-                    key[v - 1] = weight;
+                if (!mstSet[v] && weight < key[v]) {
+                    parent[v] = u;
+                    key[v] = weight;
                 }
             }
         }
