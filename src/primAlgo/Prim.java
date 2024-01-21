@@ -1,4 +1,4 @@
-package PrimAlgo;
+package primAlgo;
 
 import graph.Graph;
 
@@ -118,7 +118,7 @@ public class Prim {
                 totalWeight += pri_bestWeight[i];
             }
         }
-        
+
         ps.println("Cout de l\'arbre recouvrant : " + totalWeight);
 
         for (int i = 0; i < pri_nbVertices; i++) {

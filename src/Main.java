@@ -1,4 +1,4 @@
-import PrimAlgo.Prim;
+import primAlgo.Prim;
 import graph.Graph;
 import graph.GraphUsingAdjacencyList;
 import graph.GraphUsingAdjacencyMatrix;
