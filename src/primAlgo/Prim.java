@@ -55,7 +55,7 @@ public class Prim {
         pri_parents[pri_startVertex - 1] = -1;
 
         for (int i = 0; i < pri_nbVertices - 1; i++) {
-            int u = minKey();
+            int u = minWeight();
 
             pri_visitVertices[u] = true;
 
@@ -79,7 +79,7 @@ public class Prim {
     /** Finds the vertex with the minimum weight in the vertices that we have not visited yet.
      *  @return The index of the vertex with the minimum weight.
      */
-    private int minKey()
+    private int minWeight()
     {
         int min = INF;
         int minIndex = -1;
