@@ -1,5 +1,7 @@
 package graph;
 
+import list.List;
+
 import java.util.Iterator;
 
 /** Graph implementation using adjacency matrix */
@@ -14,6 +16,19 @@ public class GraphUsingAdjacencyMatrix extends Graph
     public GraphUsingAdjacencyMatrix(int vertices)
     {
         super(vertices);
+    }
+
+    /** Instantiate a AdjacencyList with file that as the representation of a graph.
+     * @param fileNameGraph The name of the file.
+     */
+    public GraphUsingAdjacencyMatrix(String fileNameGraph)
+    {
+        super(fileNameGraph);
+    }
+
+    /** Initialize the adjacency matrix. */
+    @Override
+    protected void initGraph(){
         pro_adjacencyMatrix = new int[pro_vertices * pro_vertices];
         for(int i = 0; i < pro_vertices * pro_vertices; i++)
         {

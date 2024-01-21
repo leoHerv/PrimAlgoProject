@@ -12,14 +12,15 @@ public class Main
         }*/
         System.out.println("GraphUsingAdjacencyList");
 
-        Graph graph = new GraphUsingAdjacencyList(6);
+        Graph graph = new GraphUsingAdjacencyList("graph.txt");
+        /*
         graph.addEdge(2, 1, 61);
         graph.addEdge(3, 1, 50);
         graph.addEdge(3, 2, 1);
         graph.addEdge(4, 3, 68);
         graph.addEdge(5, 4, 84);
         graph.addEdge(6, 1, 28);
-        graph.addEdge(6, 5, 34);
+        graph.addEdge(6, 5, 34);*/
 
 
 
@@ -34,14 +35,15 @@ public class Main
 
         System.out.println("GraphUsingAdjacencyMatrix");
 
-        Graph graph2 = new GraphUsingAdjacencyMatrix(6);
+        Graph graph2 = new GraphUsingAdjacencyMatrix("graph.txt");
+        /*
         graph2.addEdge(2, 1, 61);
         graph2.addEdge(3, 1, 50);
         graph2.addEdge(3, 2, 1);
         graph2.addEdge(4, 3, 68);
         graph2.addEdge(5, 4, 84);
         graph2.addEdge(6, 1, 28);
-        graph2.addEdge(6, 5, 34);
+        graph2.addEdge(6, 5, 34);*/
 
 
 

@@ -16,7 +16,20 @@ public class GraphUsingAdjacencyList extends Graph
     public GraphUsingAdjacencyList(int vertices)
     {
         super(vertices);
-        pro_adjacencyList = new List[vertices];
+    }
+
+    /** Instantiate a AdjacencyList with file that as the representation of a graph.
+     * @param fileNameGraph The name of the file.
+     */
+    public GraphUsingAdjacencyList(String fileNameGraph)
+    {
+        super(fileNameGraph);
+    }
+
+    /** Initialize the adjacency list. */
+    @Override
+    protected void initGraph(){
+        pro_adjacencyList = new List[pro_vertices];
         // Init all edge list of all the vertices.
         for(int i = 0; i < pro_vertices; i++)
         {
