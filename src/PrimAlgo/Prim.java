@@ -2,122 +2,131 @@ package PrimAlgo;
 
 import graph.Graph;
 
-import java.util.*;
+import java.io.PrintStream;
+import java.util.Arrays;
+import java.util.Iterator;
 
 /**
  * Class to perform the Prim Algorithm.
  */
 public class Prim {
 
-    /**
-     * The Graph to use.
-     */
-    Graph graphToUse;
-    /**
-     * The Inf.
-     */
-    private static final int INF = Integer.MAX_VALUE;
+    /** The representation of infinity. */
+    public static final int INF = Graph.INF;
 
-    /**
-     * Instantiates a new Prim.
-     *
-     * @param graphToPerform the graph to perform
+    /** The Graph that we apply the Prim algorithm. */
+    private final Graph pri_graph;
+    /** The vertex where we start the algorithm. */
+    private int pri_startVertex;
+    /** The number of vertices. */
+    private int pri_nbVertices;
+    /** The parents list for all the vertices. */
+    private int[] pri_parents;
+    /** The best weight list for all the vertices. */
+    private int[] pri_bestWeight;
+    /** The visited list for all the vertices. */
+    private boolean[] pri_visitVertices;
+
+
+    /** Instantiates a new Prim.
+     *  @param graph The graph to perform.
+     *  @param startVertex The vertex where we start the algorithm.
      */
-    public Prim(Graph graphToPerform){
-        // Initializes a new instance of the Prim class with the specified graph.
-        this.graphToUse = graphToPerform;
+    public Prim(Graph graph, int startVertex)
+    {
+        pri_graph = graph;
+        pri_nbVertices = pri_graph.getVertices();
+        pri_startVertex = startVertex;
+        pri_parents = new int[pri_nbVertices];
+        pri_bestWeight = new int[pri_nbVertices];
+        pri_visitVertices = new boolean[pri_nbVertices];
+
+        Arrays.fill(pri_parents, INF);
+        Arrays.fill(pri_bestWeight, INF);
     }
 
-    /**
-     * Prim Minimum Spanning Tree (MST).
-     *
-     * @param startVertex the start vertex
-     */
-    public void primMST(int startVertex) {
-        // Implements the Prim's algorithm to find the minimum spanning tree of the graph.
-        // The algorithm starts from the specified start vertex.
+    /** Perform the Prim algorithm. */
+    public void performAlgo()
+    {
+        pri_bestWeight[pri_startVertex - 1] = 1;
+        pri_parents[pri_startVertex - 1] = -1;
 
-        int vertices = graphToUse.getVertices();
-        int[] parent = new int[vertices];
-        int[] key = new int[vertices];
-        boolean[] mstSet = new boolean[vertices];
+        for (int i = 0; i < pri_nbVertices - 1; i++) {
+            int u = minKey();
 
-        Arrays.fill(key, INF);
-        Arrays.fill(parent, INF);
+            pri_visitVertices[u] = true;
 
-        key[startVertex - 1] = 1;
-        parent[startVertex] = -1;
-
-        for (int count = 0; count < vertices - 1; count++) {
-            int u = minKey(key, mstSet);
-
-            if (u == -1) {
-                break;
-            }
-
-            mstSet[u] = true;
-
-            Iterator<Integer> iterator = graphToUse.getNeighbors(u + 1);
+            Iterator<Integer> iterator = pri_graph.getNeighbors(u + 1);
             while (iterator.hasNext()) {
                 int v = iterator.next() - 1;
-                if (v > vertices) {
-                    continue;
-                }
-                int weight = graphToUse.getWeight(u + 1, v + 1);
 
-                if (!mstSet[v] && weight < key[v]) {
-                    parent[v] = u;
-                    key[v] = weight;
+                int weight = pri_graph.getWeight(u + 1, v + 1);
+
+                if (!pri_visitVertices[v] && weight < pri_bestWeight[v]) {
+                    pri_parents[v] = u;
+                    pri_bestWeight[v] = weight;
                 }
             }
         }
-
-        printMST(startVertex, parent, key);
     }
 
-    /**
-     * Finds the vertex with the minimum key value, from the set of vertices not yet included in MST.
-     *
-     * @param key the key values of the vertices
-     * @param mstSet the boolean array that represents the set of vertices included in MST
-     * @return the index of the vertex with the minimum key value
+    /** Finds the vertex with the minimum weight in the vertices that we have not visited yet.
+     *  @return The index of the vertex with the minimum weight.
      */
-    private int minKey(int[] key, boolean[] mstSet) {
+    private int minKey()
+    {
         int min = INF;
         int minIndex = -1;
 
-        for (int v = 0; v < key.length; v++) {
-            if (!mstSet[v] && key[v] < min) {
-                min = key[v];
+        for (int v = 0; v < pri_bestWeight.length; v++) {
+            if (!pri_visitVertices[v] && pri_bestWeight[v] < min) {
+                min = pri_bestWeight[v];
                 minIndex = v;
             }
         }
         return minIndex;
     }
 
-    /**
-     * Prints the constructed MST.
-     *
-     * @param startVertex the start vertex
-     * @param parent the parent array that represents the constructed MST
-     * @param key the key values of the vertices
+    /** Prints the constructed MST in a stream.
+     *  @param ps The stream where we want the MST to be printed.
      */
-    private void printMST(int startVertex, int[] parent, int[] key) {
-        // Prints the edges of the minimum spanning tree and their weights.
-        System.out.println("LE GRAPHE EST CONNEXE");
-        int totalWeight = 0;
+    public void printMST(PrintStream ps)
+    {
+        boolean isConnexe = true;
+        for(int i = 0; i < pri_nbVertices; i++){
+            if(!pri_visitVertices[i]){
+                isConnexe = false;
+                break;
+            }
+        }
+        if(isConnexe){
+            ps.println("LE GRAPHE EST CONNEXE");
+        }
+        else{
+            ps.println("LE GRAPHE N\'EST PAS CONNEXE");
+        }
 
-        for (int i = 0; i < graphToUse.getVertices(); i++) {
-            if (i != startVertex) {
-                totalWeight += key[i];
+        int totalWeight = 0;
+        for (int i = 0; i < pri_nbVertices; i++) {
+            if (i != pri_startVertex - 1 && pri_parents[i] != INF) {
+                totalWeight += pri_bestWeight[i];
             }
         }
         System.out.println("Coût de l'arbre recouvrant : " + totalWeight);
 
-        for (int i = 0; i < graphToUse.getVertices(); i++) {
-            if (i != startVertex && parent[i] != INF) {
-                System.out.println("(" + (i + 1) + " -> " + (parent[i] + 1) + " : " + key[i] + ")");
+        for (int i = 0; i < pri_nbVertices; i++) {
+            if(i == pri_startVertex - 1){
+                ps.println("(" + (pri_startVertex) + " -> _ : _)");
+            }
+            else if (i != pri_startVertex - 1 && pri_parents[i] != INF) {
+                ps.println("(" + (i + 1) + " -> " + (pri_parents[i] + 1) + " : " + pri_bestWeight[i] + ")");
             }
         }
+    }
+
+    /** Prints the constructed MST in the console. */
+    public void printMST()
+    {
+        printMST(System.out);
     }
 }

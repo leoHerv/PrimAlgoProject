@@ -11,7 +11,7 @@ public abstract class Graph
     protected final int pro_vertices;
 
     /** The representation of infinity in our graphs. */
-    static final int INF = Integer.MAX_VALUE;
+    public static final int INF = Integer.MAX_VALUE;
 
     public Graph(int vertices)
     {
