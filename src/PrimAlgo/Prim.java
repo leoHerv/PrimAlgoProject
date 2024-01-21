@@ -118,7 +118,8 @@ public class Prim {
                 totalWeight += pri_bestWeight[i];
             }
         }
-        System.out.println("Cout de l\'arbre recouvrant : " + totalWeight);
+        
+        ps.println("Cout de l\'arbre recouvrant : " + totalWeight);
 
         for (int i = 0; i < pri_nbVertices; i++) {
             if(i == pri_startVertex - 1){
