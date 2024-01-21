@@ -6,9 +6,7 @@ import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.Iterator;
 
-/**
- * Class to perform the Prim Algorithm.
- */
+/** Class to perform the Prim Algorithm. */
 public class Prim {
 
     /** The representation of infinity. */
@@ -26,6 +24,8 @@ public class Prim {
     private int[] pri_bestWeight;
     /** The visited list for all the vertices. */
     private boolean[] pri_visitVertices;
+    /** The time the algorithm took to preform. */
+    private double pri_algoDuration;
 
 
     /** Instantiates a new Prim.
@@ -40,6 +40,7 @@ public class Prim {
         pri_parents = new int[pri_nbVertices];
         pri_bestWeight = new int[pri_nbVertices];
         pri_visitVertices = new boolean[pri_nbVertices];
+        pri_algoDuration = 0;
 
         Arrays.fill(pri_parents, INF);
         Arrays.fill(pri_bestWeight, INF);
@@ -48,6 +49,8 @@ public class Prim {
     /** Perform the Prim algorithm. */
     public void performAlgo()
     {
+        long startTime = System.nanoTime();
+
         pri_bestWeight[pri_startVertex - 1] = 1;
         pri_parents[pri_startVertex - 1] = -1;
 
@@ -68,6 +71,9 @@ public class Prim {
                 }
             }
         }
+
+        long endTime = System.nanoTime();
+        pri_algoDuration = (endTime - startTime) / 1e6;
     }
 
     /** Finds the vertex with the minimum weight in the vertices that we have not visited yet.
@@ -112,7 +118,7 @@ public class Prim {
                 totalWeight += pri_bestWeight[i];
             }
         }
-        System.out.println("Coût de l'arbre recouvrant : " + totalWeight);
+        System.out.println("Cout de l\'arbre recouvrant : " + totalWeight);
 
         for (int i = 0; i < pri_nbVertices; i++) {
             if(i == pri_startVertex - 1){
@@ -122,6 +128,8 @@ public class Prim {
                 ps.println("(" + (i + 1) + " -> " + (pri_parents[i] + 1) + " : " + pri_bestWeight[i] + ")");
             }
         }
+
+        ps.println("Temps CPU : " + pri_algoDuration + " ms");
     }
 
     /** Prints the constructed MST in the console. */
