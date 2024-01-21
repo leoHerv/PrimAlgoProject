@@ -1,4 +1,4 @@
-import PrimeAlgo.PrimAlgo;
+import PrimAlgo.Prim;
 import graph.Graph;
 import graph.GraphUsingAdjacencyList;
 import graph.GraphUsingAdjacencyMatrix;
@@ -24,7 +24,7 @@ public class Main
 
 
         long startTime = System.nanoTime();
-        PrimAlgo algo = new PrimAlgo(graph);
+        Prim algo = new Prim(graph);
         algo.primMST(1);
         long endTime = System.nanoTime();
 
@@ -46,7 +46,7 @@ public class Main
 
 
         long startTime2 = System.nanoTime();
-        PrimAlgo algo2 = new PrimAlgo(graph2);
+        Prim algo2 = new Prim(graph2);
         algo2.primMST(1);
         long endTime2 = System.nanoTime();
 

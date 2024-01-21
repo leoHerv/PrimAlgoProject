@@ -1,19 +1,42 @@
-package PrimeAlgo;
+package PrimAlgo;
 
 import graph.Graph;
 
 import java.util.*;
 
-public class PrimAlgo {
+/**
+ * Class to perform the Prim Algorithm.
+ */
+public class Prim {
 
+    /**
+     * The Graph to use.
+     */
     Graph graphToUse;
-    static final int INF = Integer.MAX_VALUE;
+    /**
+     * The Inf.
+     */
+    private static final int INF = Integer.MAX_VALUE;
 
-    public PrimAlgo(Graph graphToPerform){
+    /**
+     * Instantiates a new Prim.
+     *
+     * @param graphToPerform the graph to perform
+     */
+    public Prim(Graph graphToPerform){
+        // Initializes a new instance of the Prim class with the specified graph.
         this.graphToUse = graphToPerform;
     }
 
+    /**
+     * Prim Minimum Spanning Tree (MST).
+     *
+     * @param startVertex the start vertex
+     */
     public void primMST(int startVertex) {
+        // Implements the Prim's algorithm to find the minimum spanning tree of the graph.
+        // The algorithm starts from the specified start vertex.
+
         int vertices = graphToUse.getVertices();
         int[] parent = new int[vertices];
         int[] key = new int[vertices];
@@ -37,7 +60,7 @@ public class PrimAlgo {
             Iterator<Integer> iterator = graphToUse.getNeighbors(u + 1);
             while (iterator.hasNext()) {
                 int v = iterator.next() - 1;
-                if (v > vertices || u >= vertices) {
+                if (v > vertices) {
                     continue;
                 }
                 int weight = graphToUse.getWeight(u + 1, v + 1);
@@ -52,9 +75,14 @@ public class PrimAlgo {
         printMST(startVertex, parent, key);
     }
 
-
-
-    private static int minKey(int[] key, boolean[] mstSet) {
+    /**
+     * Finds the vertex with the minimum key value, from the set of vertices not yet included in MST.
+     *
+     * @param key the key values of the vertices
+     * @param mstSet the boolean array that represents the set of vertices included in MST
+     * @return the index of the vertex with the minimum key value
+     */
+    private int minKey(int[] key, boolean[] mstSet) {
         int min = INF;
         int minIndex = -1;
 
@@ -67,7 +95,15 @@ public class PrimAlgo {
         return minIndex;
     }
 
+    /**
+     * Prints the constructed MST.
+     *
+     * @param startVertex the start vertex
+     * @param parent the parent array that represents the constructed MST
+     * @param key the key values of the vertices
+     */
     private void printMST(int startVertex, int[] parent, int[] key) {
+        // Prints the edges of the minimum spanning tree and their weights.
         System.out.println("LE GRAPHE EST CONNEXE");
         int totalWeight = 0;
 
@@ -84,6 +120,4 @@ public class PrimAlgo {
             }
         }
     }
-
-
 }
