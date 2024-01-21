@@ -57,6 +57,9 @@ public class Prim {
         for (int i = 0; i < pri_nbVertices - 1; i++) {
             int u = minWeight();
 
+            if (u == -1) {
+                break;
+            }
             pri_visitVertices[u] = true;
 
             Iterator<Integer> iterator = pri_graph.getNeighbors(u + 1);
