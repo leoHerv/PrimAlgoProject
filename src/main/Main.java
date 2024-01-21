@@ -10,6 +10,11 @@ import java.lang.reflect.Constructor;
 
 public class Main
 {
+    /** Run the Prim algorithm on a graph in a file with an adjacency list or adjacency matrix.
+     *  @param args The arguments of the command line.
+     *  @param graphType The type of the graph.
+     *  @param mention The mention of the executable.
+     * */
     public static <T extends Graph> void runProgram(String[] args, Class<T> graphType, String mention)
     {
         // We check if we have the right number of arguments.
@@ -32,11 +37,12 @@ public class Main
         Prim algo = new Prim(graph, Integer.parseInt(args[1]));
         algo.performAlgo();
 
+        // We print our result in the console or a file.
         if(args.length == 2){
             algo.printMST();
         }
         else{
-            // We try to create or open the file in the third argument.
+            // We try to create or open the file with the name in the third argument.
             try {
                 FileOutputStream fileOutputStream = new FileOutputStream(args[2]);
                 PrintStream outFile = new PrintStream(fileOutputStream);
