@@ -10,18 +10,21 @@ OBJECTS = $(SOURCES:$(SRCDIR)/%.java=$(OBJDIR)/%.class)
 ARGS = arg1 arg2 arg3
 
 comp: $(OBJECTS)
-	@echo "Compilation done with success.\n"
+	@echo "\n>>Compilation done with success.\n"
 
 $(OBJDIR)/%.class: $(SRCDIR)/%.java
 	@mkdir -p $(@D)
 	@$(JC) $(JFLAGS) -d $(OBJDIR) $<
 
-PrimM:
+PrimM: comp
 	@$(JVM) -cp $(OBJDIR) src.PrimM $(ARGS)
+	@echo "\n>> End of PrimM execution.\n"
 
-PrimL:
-	@$(JVM) -cp $(OBJDIR) src.PrimL $(ARGS)
+
+PrimL: comp
+	@$(JVM) -cp $(OBJDIR) src.PrimL $(ARGS)cccc
+	@echo "\n>> End of PrimL execution.\n"
 
 clean :
 	@$(RM) -r $(OBJDIR)
-	@echo "\nObject files clean with success.\n"
+	@echo "\n>> Object files clean with success.\n"
