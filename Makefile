@@ -16,8 +16,8 @@ $(OBJDIR)/%.class: $(SRCDIR)/%.java
 
 run: comp
 	@echo "Run examples :"
-	@echo "> $(JVM) -cp $(OBJDIR) src.PrimM graph.txt 1"
-	@echo "> $(JVM) -cp $(OBJDIR) src.PrimL graph.txt 1"
+	@echo "> $(JVM) -cp $(OBJDIR) src.PrimM examples/graph.txt 1"
+	@echo "> $(JVM) -cp $(OBJDIR) src.PrimL examples/graph.txt 1"
 
 clean :
 	@$(RM) -r $(OBJDIR)

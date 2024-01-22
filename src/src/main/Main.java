@@ -19,7 +19,7 @@ public class Main
     {
         // We check if we have the right number of arguments.
         if (args.length != 2 && args.length != 3) {
-            System.out.println("Usage: java Prim" + mention + " <graph_file> <start_vertex> [<output_file>]");
+            System.out.println("Usage: java -cp src/obj src.Prim" + mention + " <graph_file> <start_vertex> [<output_file>]");
             System.exit(1);
         }
 
