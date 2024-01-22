@@ -18,8 +18,10 @@ Algorithme de Prim
 		
 		=> make comp :
 			Permettant de compiler le programme dans le dossier src/obj.
-		=> make run :
-			Permettant de compiler le programme et donne deux exemples de commande pour executer les programmes.
+		=> make PrimM ARGS="arg1 arg2 arg3" :
+			Permet d'executer le programme PrimM avec trois arguments.
+        => make PrimL ARGS="arg1 arg2 arg3" :
+            Permet d'executer le programme PrimL avec trois arguments.
 		=> make clean :
 			Permettant de supprimer le dossier /src/obj ou sont les fichiers .class.
 	
@@ -41,7 +43,7 @@ Arguments :
 
 ===== Compilation et execution =====
 
-1)  make run
-2)  java -cp src/obj src.PrimM examples/graph.txt 1
+1)  make comp
+2)  make PrimL ARGS="examples/graph.txt 1"
     ou
-    java -cp src/obj src.PrimL examples/graph.txt 1
+    make PrimM ARGS="examples/graph.txt 1 outputFile.txt"

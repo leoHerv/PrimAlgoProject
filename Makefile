@@ -7,6 +7,8 @@ OBJDIR = $(SRCDIR)/obj
 SOURCES = $(wildcard $(SRCDIR)/*/*.java $(SRCDIR)/*.java)
 OBJECTS = $(SOURCES:$(SRCDIR)/%.java=$(OBJDIR)/%.class)
 
+ARGS = arg1 arg2 arg3
+
 comp: $(OBJECTS)
 	@echo "Compilation done with success.\n"
 
@@ -14,10 +16,11 @@ $(OBJDIR)/%.class: $(SRCDIR)/%.java
 	@mkdir -p $(@D)
 	@$(JC) $(JFLAGS) -d $(OBJDIR) $<
 
-run: comp
-	@echo "Run examples :"
-	@echo "> $(JVM) -cp $(OBJDIR) src.PrimM examples/graph.txt 1"
-	@echo "> $(JVM) -cp $(OBJDIR) src.PrimL examples/graph.txt 1"
+PrimM:
+	@$(JVM) -cp $(OBJDIR) src.PrimM $(ARGS)
+
+PrimL:
+	@$(JVM) -cp $(OBJDIR) src.PrimL $(ARGS)
 
 clean :
 	@$(RM) -r $(OBJDIR)
