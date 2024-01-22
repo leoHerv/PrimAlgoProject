@@ -1,6 +1,4 @@
-package graph;
-
-import list.List;
+package src.graph;
 
 import java.util.Iterator;
 

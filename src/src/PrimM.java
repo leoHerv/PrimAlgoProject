@@ -1,5 +1,7 @@
-import graph.GraphUsingAdjacencyMatrix;
-import main.Main;
+package src;
+
+import src.graph.GraphUsingAdjacencyMatrix;
+import src.main.Main;
 
 public class PrimM
 {

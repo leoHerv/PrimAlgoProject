@@ -1,7 +1,7 @@
-package main;
+package src.main;
 
-import primAlgo.Prim;
-import graph.Graph;
+import src.primAlgo.Prim;
+import src.graph.Graph;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;

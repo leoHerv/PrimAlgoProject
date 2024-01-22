@@ -1,6 +1,4 @@
-##################################################
-##			    SIMPLE MAKEFILE 	       	    ##
-##################################################
+# Al NATOUR Mazen and HERVOUET Leo
 JFLAGS = -g
 JC = javac
 JVM = java
@@ -9,16 +7,18 @@ OBJDIR = $(SRCDIR)/obj
 SOURCES = $(wildcard $(SRCDIR)/*/*.java $(SRCDIR)/*.java)
 OBJECTS = $(SOURCES:$(SRCDIR)/%.java=$(OBJDIR)/%.class)
 
-all: $(OBJECTS)
-	@echo "--> Compilation terminee avec succes !\n"
+comp: $(OBJECTS)
+	@echo "Compilation done with success.\n"
 
 $(OBJDIR)/%.class: $(SRCDIR)/%.java
 	@mkdir -p $(@D)
 	@$(JC) $(JFLAGS) -d $(OBJDIR) $<
 
-run : all
-	@$(JVM) -cp $(OBJDIR) Main
+run: comp
+	@echo "Run examples :"
+	@echo "> $(JVM) -cp $(OBJDIR) src.PrimM graph.txt 1"
+	@echo "> $(JVM) -cp $(OBJDIR) src.PrimL graph.txt 1"
 
 clean :
 	@$(RM) -r $(OBJDIR)
-	@echo "\n--> Tous les .class ont ete supprimes avec succes !\n"
+	@echo "\nObject files clean with success.\n"

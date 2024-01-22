@@ -1,5 +1,7 @@
-import graph.GraphUsingAdjacencyList;
-import main.Main;
+package src;
+
+import src.graph.GraphUsingAdjacencyList;
+import src.main.Main;
 
 public class PrimL
 {

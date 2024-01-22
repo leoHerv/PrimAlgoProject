@@ -1,6 +1,6 @@
-package graph;
+package src.graph;
 
-import list.List;
+import src.list.List;
 
 import java.util.Iterator;
 
@@ -28,8 +28,9 @@ public class GraphUsingAdjacencyList extends Graph
 
     /** Initialize the adjacency list. */
     @Override
+    @SuppressWarnings({"rawtypes", "unchecked"}) // To remove the warning when creating an array of a generic class.
     protected void initGraph(){
-        pro_adjacencyList = new List[pro_vertices];
+        pro_adjacencyList = (List<Edge>[]) new List[pro_vertices];
         // Init all edge list of all the vertices.
         for(int i = 0; i < pro_vertices; i++)
         {

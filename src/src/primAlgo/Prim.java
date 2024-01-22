@@ -1,6 +1,6 @@
-package primAlgo;
+package src.primAlgo;
 
-import graph.Graph;
+import src.graph.Graph;
 
 import java.io.PrintStream;
 import java.util.Arrays;
