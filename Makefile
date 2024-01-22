@@ -22,7 +22,7 @@ PrimM: comp
 
 
 PrimL: comp
-	@$(JVM) -cp $(OBJDIR) src.PrimL $(ARGS)cccc
+	@$(JVM) -cp $(OBJDIR) src.PrimL $(ARGS)
 	@echo "\n>> End of PrimL execution.\n"
 
 clean :
