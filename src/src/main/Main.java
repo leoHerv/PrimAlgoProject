@@ -33,7 +33,14 @@ public class Main
             throw new RuntimeException("Error runProgram : can't create the class " + graphType.getName());
         }
 
-        int startVertex = Integer.parseInt(args[1]);
+        int startVertex = 0;
+        try {
+             startVertex = Integer.parseInt(args[1]);
+        }catch (NumberFormatException e) {
+            System.out.println("Error startVertx: The start vertex should be an integer.\n");
+            System.exit(1);
+        }
+
         if(startVertex > 0 && startVertex <=  graph.getVertices()){
 
             System.out.println("\n============================= Prim Algorithm =============================\n");
