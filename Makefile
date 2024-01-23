@@ -16,14 +16,17 @@ $(OBJDIR)/%.class: $(SRCDIR)/%.java
 	@mkdir -p $(@D)
 	@$(JC) $(JFLAGS) -d $(OBJDIR) $<
 
-PrimM: comp
+PrimM:
+	@if [ ! -d "$(OBJDIR)" ]; then make comp; fi
+	@echo "\n"
 	@$(JVM) -cp $(OBJDIR) src.PrimM $(ARGS)
 	@echo "\n>> End of PrimM execution.\n"
 
-PrimL: comp
+PrimL:
+	@if [ ! -d "$(OBJDIR)" ]; then make comp; fi
+	@echo "\n"
 	@$(JVM) -cp $(OBJDIR) src.PrimL $(ARGS)
 	@echo "\n>> End of PrimL execution.\n"
-
 clean :
 	@$(RM) -r $(OBJDIR)
 	@echo "\n>> Object files clean with success.\n"
