@@ -20,8 +20,8 @@ Algorithme de Prim
 			Permettant de compiler le programme dans le dossier src/obj.
 		=> make PrimM ARGS="arg1 arg2 arg3" :
 			Permet d'executer le programme PrimM avec trois arguments.
-        => make PrimL ARGS="arg1 arg2 arg3" :
-            Permet d'executer le programme PrimL avec trois arguments.
+        	=> make PrimL ARGS="arg1 arg2 arg3" :
+            		Permet d'executer le programme PrimL avec trois arguments.
 		=> make clean :
 			Permettant de supprimer le dossier /src/obj ou sont les fichiers .class.
 	
