@@ -54,7 +54,7 @@ public class Prim {
         pri_bestWeight[pri_startVertex - 1] = 1;
         pri_parents[pri_startVertex - 1] = -1;
 
-        for (int i = 0; i < pri_nbVertices - 1; i++) {
+        for (int i = 0; i < pri_nbVertices; i++) {
             int u = minWeight();
 
             if (u == -1) {
