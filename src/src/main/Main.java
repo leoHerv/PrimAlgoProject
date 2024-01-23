@@ -23,6 +23,10 @@ public class Main
             System.exit(1);
         }
 
+
+        System.out.println("\n============================= Prim Algorithm =============================\n");
+
+
         // We try to create a new graph with the class type 'graphType'.
         Graph graph = null;
         try {
@@ -61,7 +65,7 @@ public class Main
         }
 
 
-
+        System.out.println("\n==========================================================================\n");
     }
 
 }
