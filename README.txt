@@ -9,7 +9,7 @@ Algorithme de Prim
 	* Un dossier /src :
 		Contenant les fichiers sources de notre projet.
 
-	* rapport_Al Natour_Hervouet.pdf :
+	* rapport_AlNatour_Hervouet.pdf :
 		Ceci est le rapport répondant aux questions posees ainsi que les explications de certaines classes.
 
 	* Un Makefile :

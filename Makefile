@@ -10,7 +10,7 @@ OBJECTS = $(SOURCES:$(SRCDIR)/%.java=$(OBJDIR)/%.class)
 ARGS = arg1 arg2 arg3
 
 comp: $(OBJECTS)
-	@echo "\n>>Compilation done with success.\n"
+	@echo "\n>> Compilation done with success.\n"
 
 $(OBJDIR)/%.class: $(SRCDIR)/%.java
 	@mkdir -p $(@D)
