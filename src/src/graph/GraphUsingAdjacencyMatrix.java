@@ -97,7 +97,7 @@ public class GraphUsingAdjacencyMatrix extends Graph
         @Override
         public boolean hasNext()
         {
-            return pri_currentNeighbor < pro_vertices;
+            return pri_currentNeighbor <= pro_vertices;
         }
 
         /** Give the next neighbor.
