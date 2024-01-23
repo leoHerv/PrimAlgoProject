@@ -20,7 +20,6 @@ PrimM: comp
 	@$(JVM) -cp $(OBJDIR) src.PrimM $(ARGS)
 	@echo "\n>> End of PrimM execution.\n"
 
-
 PrimL: comp
 	@$(JVM) -cp $(OBJDIR) src.PrimL $(ARGS)
 	@echo "\n>> End of PrimL execution.\n"
