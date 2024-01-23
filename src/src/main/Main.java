@@ -36,11 +36,12 @@ public class Main
             e.printStackTrace();
             throw new RuntimeException("Error runProgram : can't create the class " + graphType.getName());
         }
-        
+
         int startvertex = Integer.parseInt(args[1]);
         if(startvertex > 0 && startvertex <=  graph.getVertices()){
 
             System.out.println("\n============================= Prim Algorithm =============================\n");
+            
             // We perform the Prim algorithm on the graph.
             Prim algo = new Prim(graph, startvertex);
             algo.performAlgo();
@@ -60,6 +61,8 @@ public class Main
                     throw new RuntimeException(e);
                 }
             }
+
+            System.out.println("\n==========================================================================\n");
         }
         else{
             System.out.println("Error StartVertx: The start vertex is not between 1 and " + graph.getVertices() + ".\n");
@@ -67,7 +70,7 @@ public class Main
         }
 
 
-        System.out.println("\n==========================================================================\n");
+
     }
 
 }
