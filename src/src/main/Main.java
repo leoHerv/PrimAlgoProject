@@ -33,25 +33,35 @@ public class Main
             throw new RuntimeException("Error runProgram : can't create the class " + graphType.getName());
         }
 
-        // We perform the Prim algorithm on the graph.
-        Prim algo = new Prim(graph, Integer.parseInt(args[1]));
-        algo.performAlgo();
+        int startvertex = Integer.parseInt(args[1]);
+        if(startvertex > 0 && startvertex <=  graph.getVertices()){
+            // We perform the Prim algorithm on the graph.
+            Prim algo = new Prim(graph, startvertex);
+            algo.performAlgo();
 
-        // We print our result in the console or a file.
-        if(args.length == 2){
-            algo.printMST();
-        }
-        else{
-            // We try to create or open the file with the name in the third argument.
-            try {
-                FileOutputStream fileOutputStream = new FileOutputStream(args[2]);
-                PrintStream outFile = new PrintStream(fileOutputStream);
-                algo.printMST(outFile);
-                outFile.close();
-            } catch (FileNotFoundException e) {
-                throw new RuntimeException(e);
+            // We print our result in the console or a file.
+            if(args.length == 2){
+                algo.printMST();
+            }
+            else{
+                // We try to create or open the file with the name in the third argument.
+                try {
+                    FileOutputStream fileOutputStream = new FileOutputStream(args[2]);
+                    PrintStream outFile = new PrintStream(fileOutputStream);
+                    algo.printMST(outFile);
+                    outFile.close();
+                } catch (FileNotFoundException e) {
+                    throw new RuntimeException(e);
+                }
             }
         }
+        else{
+            System.out.println("Error StartVertx: The start vertex is not between 1 and " + graph.getVertices() + ".\n");
+            System.exit(1);
+        }
+
+
+
     }
 
 }
