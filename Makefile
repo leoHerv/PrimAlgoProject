@@ -8,6 +8,8 @@ SOURCES = $(wildcard $(SRCDIR)/*/*.java $(SRCDIR)/*.java)
 OBJECTS = $(SOURCES:$(SRCDIR)/%.java=$(OBJDIR)/%.class)
 
 ARGS = arg1 arg2 arg3
+ARGSGraphG = arg1 arg2 arg3 arg4 arg5
+
 
 comp: $(OBJECTS)
 	@echo "\n>> Compilation done with success.\n"
@@ -30,9 +32,9 @@ PrimL:
 
 GraphGenerator:
 	@if [ ! -d "$(OBJDIR)" ]; then make comp; fi
-	@echo "\n"
-	@$(JVM) -cp $(OBJDIR) src.GraphGenerator $(ARGS)
+	@$(JVM) -cp $(OBJDIR) src.GraphGenerator $(ARGSGraphG)
 	@echo "\n>> End of GraphGenerator execution.\n"
+
 clean :
 	@$(RM) -r $(OBJDIR)
 	@echo "\n>> Object files clean with success.\n"
