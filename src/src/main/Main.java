@@ -60,7 +60,7 @@ public class Main
                     PrintStream outFile = new PrintStream(fileOutputStream);
                     algo.printMST(outFile);
                     outFile.close();
-                    System.out.println("\nThe result has been successfully written to the file '" + args[2] + "'. Please check the 'outputFiles' directory.\n");
+                    System.out.println("\n-> The result has been successfully written to the file '" + args[2] + "'. Please check the 'outputFiles' directory.\n");
                 } catch (FileNotFoundException e) {
                     throw new RuntimeException(e);
                 }
