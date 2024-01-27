@@ -52,8 +52,8 @@ public class GraphGenerator {
                 writer.println (""+0);
             }
         } catch (IOException e) {
-            System.out.println("An error occurred while writing to the file.");
-            e.printStackTrace();
+            System.out.println("Error: An error occurred while writing to the file.");
+            System.exit(1);
         }
     }
 }
