@@ -51,7 +51,7 @@ Arguments :
 
 Arguments :
 
-   1) Nom du fichier (obligatoire) : C’est le nom du fichier dans lequel le graphe généré sera enregistré. Le fichier sera enregistré dans le répertoire “examples/” et doit avoir l’extension “.txt”. Si un autre type d’extension est fourni, le programme affichera une erreur et se terminera.
+   1) Nom du fichier (obligatoire) : C’est le nom du fichier dans lequel le graphe généré sera enregistré. Le fichier sera enregistré dans le répertoire “inputFiles/” et doit avoir l’extension “.txt”. Si un autre type d’extension est fourni, le programme affichera une erreur et se terminera.
 
    2) Nombre de sommets (optionnel) : C’est le nombre de sommets que le graphe généré aura. Si cet argument n’est pas fourni, le programme utilisera une valeur par défaut de 10.
 
@@ -67,8 +67,8 @@ Arguments :
 
 1)  make comp
 2)  make GraphGenerator ARGSGraphG="graph.txt 50"
-3)  make PrimL ARGS="examples/graph.txt 1" [même chose avec PrimM]
+3)  make PrimL ARGS="inputFiles/graph.txt 1" [même chose avec PrimM]
     ou
-    make PrimL ARGS="examples/graph.txt 1 outputFile.txt" [même chose avec PrimM]
+    make PrimL ARGS="inputFiles/graph.txt 1 outputFile.txt" [même chose avec PrimM]
 
 	

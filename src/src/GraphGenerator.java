@@ -21,14 +21,14 @@ public class GraphGenerator {
         int pourArcs = POURCENTAGE_ARCS_DEFAULT ;
         int poidsMax = POIDS_MAX_DEFAUT ;
         int poidsMin = POIDS_MIN_DEFAUT ;
-        String outputFile = "examples/DefaultOutputFile.txt"; // default output file
+        String outputFile = "inputFiles/DefaultOutputFile.txt"; // default output file
         switch (args.length){
             case 5 : poidsMax = Integer.parseInt(args[4]) ;
             case 4 : poidsMin = Integer.parseInt(args[3]) ;
             case 3 : pourArcs = Integer.parseInt(args[2]) ;
             case 2 : nbSommets = Integer.parseInt(args[1]) ;
             case 1 :
-                outputFile = "examples/" + args[0];
+                outputFile = "inputFiles/" + args[0];
                 if (!outputFile.endsWith(".txt")) {
                     System.out.println("\nError: Output file extension must be .txt! \n");
                     System.exit(1);
