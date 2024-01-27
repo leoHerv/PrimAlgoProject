@@ -27,6 +27,12 @@ PrimL:
 	@echo "\n"
 	@$(JVM) -cp $(OBJDIR) src.PrimL $(ARGS)
 	@echo "\n>> End of PrimL execution.\n"
+
+GraphGenerator:
+	@if [ ! -d "$(OBJDIR)" ]; then make comp; fi
+	@echo "\n"
+	@$(JVM) -cp $(OBJDIR) src.GraphGenerator $(ARGS)
+	@echo "\n>> End of GraphGenerator execution.\n"
 clean :
 	@$(RM) -r $(OBJDIR)
 	@echo "\n>> Object files clean with success.\n"
