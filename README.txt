@@ -43,9 +43,9 @@ Algorithme de Prim
 
 Arguments :
 
-    1) le fichier d'entrée (obligatoire) : Le nom du fichier ou se trouve le graphe sur lequel nous voulons appliquer l'algorithme de Prim.
+    1) Le fichier d'entrée (obligatoire) : Le nom du fichier ou se trouve le graphe sur lequel nous voulons appliquer l'algorithme de Prim.
     2) Le somment de départ (obligatoire) : Le sommet par lequel nous voulons commencer l'algorithme.
-    3) le fichier de sortie (optionel) :    Le fichier dans lequel nous voulons le resultat du programme.
+    3) Le fichier de sortie (optionel) :    Le fichier dans lequel nous voulons le resultat du programme.
 
 => Un programme : GraphGenerator
 
