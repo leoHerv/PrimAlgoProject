@@ -56,7 +56,7 @@ public class Main
             else{
                 // We try to create or open the file with the name in the third argument.
                 try {
-                    FileOutputStream fileOutputStream = new FileOutputStream(args[2]);
+                    FileOutputStream fileOutputStream = new FileOutputStream("outputFiles/"+args[2]);
                     PrintStream outFile = new PrintStream(fileOutputStream);
                     algo.printMST(outFile);
                     outFile.close();
