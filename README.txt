@@ -33,7 +33,7 @@ Algorithme de Prim
 	
 		Ainsi, pour utiliser ces commandes vous devez vous placer dans le répertoire "alnatour_hervouet" pour avoir acces.
 			
-	 * Un dossier /examples avec un fichier graph.txt :
+	 * Un dossier /inputFiles avec un fichier graph.txt :
 	    C'est un exemple de graphe pour faire fonctionner le programme.
 
 
