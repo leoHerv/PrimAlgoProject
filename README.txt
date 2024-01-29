@@ -33,8 +33,11 @@ Algorithme de Prim
 	
 		Ainsi, pour utiliser ces commandes vous devez vous placer dans le répertoire "alnatour_hervouet" pour avoir acces.
 			
-	 * Un dossier /inputFiles avec un fichier graph.txt :
-	    C'est un exemple de graphe pour faire fonctionner le programme.
+	* Un dossier /inputFiles avec les fichiers graph.txt et graph2.txt:
+	    Exemples de graphes pour faire fonctionner le programme.
+
+	* Un dossier /outputFiles avec un fichier otputfile.txt :
+        C'est un exemple d'un fichier de sortie.
 
 
 ===== Programmes =====
@@ -62,6 +65,7 @@ Arguments :
    5) Poids maximum (optionnel) : C’est le poids maximum que les arcs du graphe généré peuvent avoir. Si cet argument n’est pas fourni, le programme utilisera une valeur par défaut de 10.
 
    /!\ Veuillez noter que ces arguments doivent être fournis dans l’ordre indiqué ci-dessus. Si un argument optionnel n’est pas fourni, tous les arguments qui le suivent ne doivent pas non plus être fournis /!\
+
 
 ===== Compilation et execution =====
 
