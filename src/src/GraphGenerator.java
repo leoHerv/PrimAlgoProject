@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.util.Random;
 /**
  *
+ * 
  * @author abergey
  */
 public class GraphGenerator {
